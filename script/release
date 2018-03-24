@@ -1,0 +1,7 @@
+#!/bin/bash
+set -ex
+
+export REVISION=v1
+
+docker build -t kirshatrov/secretland:$REVISION .
+docker push kirshatrov/secretland:$REVISION

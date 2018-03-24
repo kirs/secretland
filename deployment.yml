@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: secretland
+  labels:
+    app: secretland
+spec:
+  selector:
+    matchLabels:
+      app: secretland
+  template:
+    metadata:
+      labels:
+        app: secretland
+    spec:
+      containers:
+      - image: kirshatrov/secretland:v1
+        name: rails
+        ports:
+        - containerPort: 3000
+        env:
+          - name: RAILS_MASTER_KEY
+            valueFrom:
+              secretKeyRef:
+                name: secretland-secrets
+                key: rails-master-key
