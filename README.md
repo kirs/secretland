@@ -1,24 +1,11 @@
-# README
+This is a sample app for the [_Rails 5.2 Credentials and Kubernetes_ post](http://kirshatrov.com/2018/03/24/rails-credentials-kubernetes/).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The interesting parts are:
 
-Things you may want to cover:
+* `app/controllers/helloworld_controller.rb` renders decrypted secrets as HTML
+* `Dockerfile` build minimalistic Docker image with the app
+* `.dockerignore` tells Docker to ignore `config/master.key`
+* `script/release` is a script for building and pushing Docker image
+* `config/deployment.yml` is Kubernetes Deployment spec that uses Kubernetes secret management
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+That's it!
