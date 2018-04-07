@@ -14,7 +14,7 @@ spec:
         app: secretland
     spec:
       containers:
-      - image: kirshatrov/secretland:v1
+      - image: kirshatrov/secretland:v2
         name: rails
         ports:
         - containerPort: 3000
@@ -24,3 +24,7 @@ spec:
               secretKeyRef:
                 name: secretland-secrets
                 key: rails-master-key
+        securityContext:
+          capabilities:
+            add:
+            - SYS_PTRACE

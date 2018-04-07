@@ -1,5 +1,8 @@
 FROM ruby:2.5
 
+RUN apt-get update
+RUN apt-get install -y gdb gdbserver
+
 RUN curl -s -o /tmp/rbspy.tar.gz -L  https://github.com/rbspy/rbspy/releases/download/v0.2.3/rbspy-v0.2.3-x86_64-unknown-linux-musl.tar.gz
 RUN tar -C /bin -xzf /tmp/rbspy.tar.gz
 
